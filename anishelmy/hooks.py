@@ -11,7 +11,10 @@ app_license = "MIT"
 
 # Includes in <head>
 # ------------------
-
+doc_events = {
+"Stock Entry": {
+	"on_submit": "anishelmy.functions.make_je"
+}
 # include js, css files in header of desk.html
 # app_include_css = "/assets/anishelmy/css/anishelmy.css"
 # app_include_js = "/assets/anishelmy/js/anishelmy.js"
