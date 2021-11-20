@@ -16,6 +16,7 @@ from frappe.utils import add_to_date, now, nowdate
 from frappe.model.document import Document
 
 def make_je(doc, method=None):
+    default_expense_account = frappe.db.get_value("Company", doc.company, "default_expense_account")
     if doc.is_party == 1:
         accounts = [
             {
@@ -23,6 +24,7 @@ def make_je(doc, method=None):
                 "account": doc.account,
                 "party_type": "Supplier",
                 "party": doc.party,
+                "project": doc.project,
                 "credit": 0,
                 "debit": -1 * doc.value_difference,
                 "debit_in_account_currency": -1 * doc.value_difference,
@@ -30,8 +32,9 @@ def make_je(doc, method=None):
             },
             {
                 "doctype": "Journal Entry Account",
-                "account": "5111 - مصاريف العمليات - A",
+                "account": default_expense_account,
                 "debit": 0,
+                "project": doc.project,
                 "credit": -1 * doc.value_difference,
                 "credit_in_account_currency": -1 * doc.value_difference,
                 "user_remark": doc.name
