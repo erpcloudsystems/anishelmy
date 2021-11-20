@@ -12,19 +12,21 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 doc_events = {
-"Stock Entry": {
-	"on_submit": "anishelmy.functions.make_je"
+	"Stock Entry": {
+		"on_submit": "anishelmy.functions.make_je"
+	}
 }
+
 # include js, css files in header of desk.html
-# app_include_css = "/assets/anishelmy/css/anishelmy.css"
-# app_include_js = "/assets/anishelmy/js/anishelmy.js"
+# app_include_css = "/assets/ecs_bank_loans/css/ecs_bank_loans.css"
+# app_include_js = "/assets/ecs_bank_loans/js/ecs_bank_loans.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/anishelmy/css/anishelmy.css"
-# web_include_js = "/assets/anishelmy/js/anishelmy.js"
+# web_include_css = "/assets/ecs_bank_loans/css/ecs_bank_loans.css"
+# web_include_js = "/assets/ecs_bank_loans/js/ecs_bank_loans.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "anishelmy/public/scss/website"
+# website_theme_scss = "ecs_bank_loans/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -59,14 +61,14 @@ doc_events = {
 # Installation
 # ------------
 
-# before_install = "anishelmy.install.before_install"
-# after_install = "anishelmy.install.after_install"
+# before_install = "ecs_bank_loans.install.before_install"
+# after_install = "ecs_bank_loans.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "anishelmy.notifications.get_notification_config"
+# notification_config = "ecs_bank_loans.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -105,39 +107,39 @@ doc_events = {
 
 # scheduler_events = {
 # 	"all": [
-# 		"anishelmy.tasks.all"
+# 		"ecs_bank_loans.tasks.all"
 # 	],
 # 	"daily": [
-# 		"anishelmy.tasks.daily"
+# 		"ecs_bank_loans.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"anishelmy.tasks.hourly"
+# 		"ecs_bank_loans.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"anishelmy.tasks.weekly"
+# 		"ecs_bank_loans.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"anishelmy.tasks.monthly"
+# 		"ecs_bank_loans.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "anishelmy.install.before_tests"
+# before_tests = "ecs_bank_loans.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "anishelmy.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "ecs_bank_loans.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "anishelmy.task.get_dashboard_data"
+# 	"Task": "ecs_bank_loans.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -173,6 +175,6 @@ user_data_fields = [
 # --------------------------------
 
 # auth_hooks = [
-# 	"anishelmy.auth.validate"
+# 	"ecs_bank_loans.auth.validate"
 # ]
 

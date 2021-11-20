@@ -24,17 +24,17 @@ def make_je(doc, method=None):
                 "party_type": "Supplier",
                 "party": doc.party,
                 "credit": 0,
-                "debit": doc.value_difference,
-                "debit_in_account_currency": doc.value_difference,
+                "debit": -1 * doc.value_difference,
+                "debit_in_account_currency": -1 * doc.value_difference,
                 "user_remark": doc.name
             },
             {
                 "doctype": "Journal Entry Account",
                 "account": "5111 - مصاريف العمليات - A",
                 "debit": 0,
-                "credit": doc.value_difference,
-                "credit_in_account_currency": doc.value_difference,
-                "user_remark": self.name
+                "credit": -1 * doc.value_difference,
+                "credit_in_account_currency": -1 * doc.value_difference,
+                "user_remark": doc.name
             }
         ]
         new_doc = frappe.get_doc({
