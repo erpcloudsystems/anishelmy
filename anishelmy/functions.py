@@ -17,6 +17,7 @@ from frappe.model.document import Document
 
 def make_je(doc, method=None):
     default_expense_account = frappe.db.get_value("Company", doc.company, "default_expense_account")
+
     if doc.is_party == 1:
         accounts = [
             {
@@ -28,6 +29,7 @@ def make_je(doc, method=None):
                 "credit": 0,
                 "debit": -1 * doc.value_difference,
                 "debit_in_account_currency": -1 * doc.value_difference,
+                "cost_center": doc.party_cost_center,
                 "user_remark": doc.name
             },
             {
@@ -37,6 +39,7 @@ def make_je(doc, method=None):
                 "project": doc.project,
                 "credit": -1 * doc.value_difference,
                 "credit_in_account_currency": -1 * doc.value_difference,
+                "cost_center": doc.party_cost_center,
                 "user_remark": doc.name
             }
         ]
@@ -49,7 +52,6 @@ def make_je(doc, method=None):
             "user_remark": doc.party
 
         })
-        new_doc.insert()
+        new_doc.insert(ignore_permissions=True)
         new_doc.submit()
-
         doc.reload()

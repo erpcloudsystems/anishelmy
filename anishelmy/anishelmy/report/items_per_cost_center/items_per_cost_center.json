@@ -1,0 +1,55 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2021-02-28 13:12:01.357851",
+ "disable_prepared_report": 1,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "mandatory": 1,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "mandatory": 1,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "ANIS HELMY SONS Letter Head",
+ "modified": "2022-01-31 13:29:14.068787",
+ "modified_by": "Administrator",
+ "module": "Anishelmy",
+ "name": "Items Per Cost Center",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select \r\n `tabStock Entry Detail`.cost_center as \"Cost Center::160\",\r\n `tabStock Entry`.`name` as \"Stock Entry:Link/Stock Entry:90\",\r\n `tabStock Entry`.`stock_entry_type` as \"Stock Entry Type:Data:120\",\r\n `tabStock Entry`.`posting_date` as \"Date::100\",\r\n `tabStock Entry Detail`.item_code as \"Item:Link/Item:50\",\r\n `tabStock Entry Detail`.item_name as \"Item Name::200\",\r\n `tabStock Entry Detail`.asset as \"Asset::200\",\r\n `tabStock Entry Detail`.item_group as \"Item Group::110\",\r\n `tabStock Entry Detail`.qty as \"Quantity::80\",\r\n `tabStock Entry Detail`.uom as \"UOM::60\",\r\n `tabStock Entry Detail`.amount as \"Amount:Currency:100\",\r\n `tabStock Entry Detail`.s_warehouse as \"Source Warehouse::140\",\r\n `tabStock Entry Detail`.t_warehouse as \"Target Warehouse::140\",\r\n `tabStock Entry Detail`.works as \"Works::150\",\r\n `tabStock Entry Detail`.supplier as \"Supplier::150\",\r\n\r\n `tabStock Entry Detail`.floors as \"Floors::80\",\r\n `tabStock Entry Detail`.frame_system as \"Frame System::120\",\r\n `tabStock Entry`.`project` as \"Project:Link/Project:100\"\r\n \r\nfrom\r\n `tabStock Entry` JOIN `tabStock Entry Detail` ON `tabStock Entry`.name = `tabStock Entry Detail`.parent\r\n \r\nwhere\r\n `tabStock Entry Detail`.`parent` = `tabStock Entry`.`name`\r\n and `tabStock Entry`.docstatus = 1\r\n and `tabStock Entry`.`posting_date` between %(from_date)s and %(to_date)s\r\n\r\norder by `tabStock Entry`.`posting_date` asc",
+ "ref_doctype": "Stock Entry",
+ "report_name": "Items Per Cost Center",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "STOCK-USER"
+  }
+ ]
+}

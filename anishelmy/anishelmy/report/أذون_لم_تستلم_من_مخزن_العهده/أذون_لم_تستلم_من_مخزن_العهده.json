@@ -1,0 +1,28 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-06-17 17:22:37.453998",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "ANIS HELMY SONS Letter Head",
+ "modified": "2021-12-23 16:50:59.340542",
+ "modified_by": "Administrator",
+ "module": "Anishelmy",
+ "name": "\u0623\u0630\u0648\u0646 \u0644\u0645 \u062a\u0633\u062a\u0644\u0645 \u0645\u0646 \u0645\u062e\u0632\u0646 \u0627\u0644\u0639\u0647\u062f\u0647",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n`tabStock Entry`.name as \"Voucher No:Link/Stock Entry:180\",\n`tabStock Entry`.posting_date as \"Date::100\",\n`tabStock Entry Detail`.item_code as \"Item Code:Link/Item:100\",\n`tabStock Entry Detail`.item_name as \"Item Name::200\",\n`tabStock Entry Detail`.qty as \"Qty Tx::70\",\n`tabStock Entry Detail`.transferred_qty as \"Qty Rx::70\",\n((`tabStock Entry Detail`.qty) - (`tabStock Entry Detail`.transferred_qty)) as \"Available Qty::120\",\n`tabStock Entry`.from_warehouse as \"Source Warehouse::180\",\n`tabStock Entry`.to_warehouse as \"Target Warehouse::180\",\n`tabStock Entry`.party_type1 as \"Party type::180\",\n`tabStock Entry`.party1 as \"Party::180\",\n`tabStock Entry`.party_name as \"Party Name::180\"\n\n\n\nFROM\n`tabStock Entry` JOIN `tabStock Entry Detail` ON `tabStock Entry`.name = `tabStock Entry Detail`.parent\nWHERE\n`tabStock Entry Detail`.`parent` = `tabStock Entry`.`name`\nand `tabStock Entry Detail`.`transferred_qty` < `tabStock Entry Detail`.`qty`\nand `tabStock Entry`.docstatus = 1\nand `tabStock Entry`.stock_entry_type = \"Material Transfer\"\nand `tabStock Entry`.add_to_transit = 1\nand `tabStock Entry`.to_warehouse = \"\u0639\u0647\u062f\u0629  - A\"\n \nORDER BY `tabStock Entry`.name desc",
+ "ref_doctype": "Stock Entry",
+ "report_name": "\u0623\u0630\u0648\u0646 \u0644\u0645 \u062a\u0633\u062a\u0644\u0645 \u0645\u0646 \u0645\u062e\u0632\u0646 \u0627\u0644\u0639\u0647\u062f\u0647",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Stock Manager"
+  }
+ ]
+}
