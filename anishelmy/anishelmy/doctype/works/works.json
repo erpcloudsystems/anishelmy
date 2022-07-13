@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "autoname": "field:works",
+ "creation": "2020-05-31 16:29:27.532658",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "works",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_works"
+ ],
+ "fields": [
+  {
+   "fieldname": "works",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "works",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "works"
+  },
+  {
+   "fieldname": "parent_works",
+   "fieldtype": "Link",
+   "label": "Parent works",
+   "options": "works"
+  }
+ ],
+ "links": [],
+ "modified": "2022-04-04 10:58:29.916276",
+ "modified_by": "Administrator",
+ "module": "Anishelmy",
+ "name": "works",
+ "nsm_parent_field": "parent_works",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
